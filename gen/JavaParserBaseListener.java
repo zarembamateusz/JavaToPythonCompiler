@@ -4,6 +4,9 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class provides an empty implementation of {@link JavaParserListener},
  * which can be extended to create a listener which only needs to handle a subset
@@ -15,6 +18,9 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	public List<String> kod = new ArrayList<String>();
+	public String currentLine = "";
+	int tab=0;
 	@Override public void enterCompilationUnit(JavaParser.CompilationUnitContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -111,13 +117,24 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassBody(JavaParser.ClassBodyContext ctx) { }
+	@Override public void enterClassBody(JavaParser.ClassBodyContext ctx) {
+		System.out.println("class body enter");
+		if(ctx.getStart().getText().equals("{")) {
+			currentLine += ":";
+			kod.add(currentLine);
+			currentLine="";
+			tab+=1;
+		}
+
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassBody(JavaParser.ClassBodyContext ctx) { }
+	@Override public void exitClassBody(JavaParser.ClassBodyContext ctx) {
+		System.out.println("class body exit");
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -135,13 +152,19 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassBodyDeclaration(JavaParser.ClassBodyDeclarationContext ctx) { }
+	@Override public void enterClassBodyDeclaration(JavaParser.ClassBodyDeclarationContext ctx) {
+		System.out.println("class body declaration enter");
+
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassBodyDeclaration(JavaParser.ClassBodyDeclarationContext ctx) { }
+	@Override public void exitClassBodyDeclaration(JavaParser.ClassBodyDeclarationContext ctx) {
+		System.out.println("class body declaration exit");
+
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -363,7 +386,9 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterQualifiedName(JavaParser.QualifiedNameContext ctx) { }
+	@Override public void enterQualifiedName(JavaParser.QualifiedNameContext ctx) {
+		currentLine+=ctx.getStart().getText();
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -423,13 +448,17 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlockStatement(JavaParser.BlockStatementContext ctx) { }
+	@Override public void enterBlockStatement(JavaParser.BlockStatementContext ctx) {
+		System.out.println("statement enter");
+	}
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlockStatement(JavaParser.BlockStatementContext ctx) { }
+	@Override public void exitBlockStatement(JavaParser.BlockStatementContext ctx) {
+		System.out.println("statement exit");
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -688,7 +717,11 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitTerminal(TerminalNode node) { }
+	@Override public void visitTerminal(TerminalNode node) {
+//		if(node.getText().equals("import"))
+		currentLine += node.getText()+" ";
+
+	}
 	/**
 	 * {@inheritDoc}
 	 *

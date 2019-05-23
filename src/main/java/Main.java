@@ -35,7 +35,15 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        String javaClassContent = "public class SampleClass { void DoSomething(){} }";
-        String javaClassContent = "void DoSomething(){}";
+        String javaClassContent = "import name;" +
+                "public class nothing{"+
+                "public void rrrrar() {" +
+                "if(true){" +
+                "   int a =0;" +
+                "}" +
+                "}" +
+                "}";
+
         JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaClassContent));
         CommonTokenStream tokens = new CommonTokenStream(java8Lexer);
         JavaParser parser = new JavaParser(tokens);
