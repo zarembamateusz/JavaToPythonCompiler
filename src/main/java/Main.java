@@ -35,16 +35,15 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        String javaClassContent = "public class SampleClass { void DoSomething(){} }";
-        String javaClassContent = "import name;" +
+        String javaClassContent = "import name; public class nothing{public void rrrrar() {if(b==true){int a =0;}}}";
+
+        String javaClassContentWithOutIF = "import name;" +
                 "public class nothing{"+
                 "public void rrrrar() {" +
-                "if(true){" +
-                "   int a =0;" +
-                "}" +
+                "int a = \"hahah\";" +
                 "}" +
                 "}";
-
-        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaClassContent));
+        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaClassContentWithOutIF));
         CommonTokenStream tokens = new CommonTokenStream(java8Lexer);
         JavaParser parser = new JavaParser(tokens);
         ParseTree tree = parser.compilationUnit();
