@@ -39,7 +39,7 @@ public class Main {
 
         String javaClassContentWithOutIF = "import name;" +
                 "public class nothing{"+
-                "public void rrrrar() {" +
+                "public void rrrrar(String t,int h) {" +
                 "int a = \"hahah\";" +
                 "}" +
                 "}";

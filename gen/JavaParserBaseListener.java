@@ -161,6 +161,7 @@ public class JavaParserBaseListener implements JavaParserListener {
 	@Override public void exitQualifiedNameList(JavaParser.QualifiedNameListContext ctx) { }
 
 	@Override public void enterFormalParameters(JavaParser.FormalParametersContext ctx) {
+
 		currentLine+="(self";
 	}
 
@@ -176,7 +177,9 @@ public class JavaParserBaseListener implements JavaParserListener {
 
 	@Override public void exitFormalParameterList(JavaParser.FormalParameterListContext ctx) { }
 
-	@Override public void enterFormalParameter(JavaParser.FormalParameterContext ctx) { }
+	@Override public void enterFormalParameter(JavaParser.FormalParameterContext ctx) {
+		currentLine+=","+ ctx.IDENTIFIER();
+	}
 
 	@Override public void exitFormalParameter(JavaParser.FormalParameterContext ctx) { }
 
