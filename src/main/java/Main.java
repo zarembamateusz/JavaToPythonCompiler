@@ -40,7 +40,7 @@ public class Main {
         String javaClassContentWithOutIF = "import name;" +
                 "public class nothing{"+
                 "public void rrrrar(String t,int h) {" +
-                "int a = \"hahah\";" +
+                "String a = \"hahah\";" +
                 "}" +
                 "}";
         JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaClassContentWithOutIF));
@@ -56,6 +56,7 @@ public class Main {
         for(String s : listener.kod){
             System.out.println(s);
         }
+
 
 
 //        assertThat(listener.getErrors().size(), is(1));

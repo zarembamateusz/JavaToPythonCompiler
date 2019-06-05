@@ -303,7 +303,20 @@ public class JavaParserBaseListener implements JavaParserListener {
 
 	@Override public void exitTypeType(JavaParser.TypeTypeContext ctx) { }
 
-	@Override public void enterPrimitiveType(JavaParser.PrimitiveTypeContext ctx) { }
+	@Override public void enterPrimitiveType(JavaParser.PrimitiveTypeContext ctx) {
+		//w python nie trzeba pisać typów
+//		if(ctx.INT()!= null)
+//			currentLine += ctx.INT() + " ";
+//		else if(ctx.BOOLEAN()!=null)
+//			currentLine += ctx.BOOLEAN() + " ";
+//		else if(ctx.DOUBLE()!= null)
+//			currentLine += ctx.DOUBLE() + " ";
+//		else if(ctx.LONG()!=null)
+//			currentLine += ctx.LONG()+" ";
+//		else if (ctx.FLOAT()!= null)
+//			currentLine += ctx.INT() + " ";
+
+	}
 
 	@Override public void exitPrimitiveType(JavaParser.PrimitiveTypeContext ctx) { }
 
