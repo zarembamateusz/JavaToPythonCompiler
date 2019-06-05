@@ -3,28 +3,25 @@ parser grammar JavaParser;
 options { tokenVocab=JavaLexer; }
 
 compilationUnit
-    : packageDeclaration? importDeclaration* typeDeclaration* EOF
+    : importDeclaration* typeDeclaration* EOF
     ;
 
-packageDeclaration
-    : PACKAGE qualifiedName ';'
-    ;
 
 importDeclaration
     : IMPORT qualifiedName ('.' '*')? ';'
     ;
 
 typeDeclaration
-    : classOrInterfaceModifier*
-      (classDeclaration | interfaceDeclaration)
+    : classModifier*
+      (classDeclaration)
     | ';'
     ;
 
 modifier
-    : classOrInterfaceModifier
+    : classModifier
     ;
 
-classOrInterfaceModifier
+classModifier
     : PUBLIC
     | PRIVATE
     | STATIC
@@ -33,21 +30,11 @@ classOrInterfaceModifier
 
 classDeclaration
     : CLASS IDENTIFIER
-      (EXTENDS typeType)?
-      (IMPLEMENTS typeType)?
       classBody
-    ;
-
-interfaceDeclaration
-    : INTERFACE IDENTIFIER (EXTENDS typeType)? interfaceBody
     ;
 
 classBody
     : '{' classBodyDeclaration* '}'
-    ;
-
-interfaceBody
-    : '{' interfaceBodyDeclaration* '}'
     ;
 
 classBodyDeclaration
@@ -85,27 +72,6 @@ fieldDeclaration
     : typeType variableDeclarators ';'
     ;
 
-interfaceBodyDeclaration
-    : modifier* interfaceMemberDeclaration
-    | ';'
-    ;
-
-interfaceMemberDeclaration
-    : interfaceMethodDeclaration
-    ;
-
-// see matching of [] comment in methodDeclaratorRest
-// methodBody from Java8
-interfaceMethodDeclaration
-    : interfaceMethodModifier* (typeTypeOrVoid | typeTypeOrVoid)
-      IDENTIFIER formalParameters ('[' ']')* methodBody
-    ;
-
-// Java8
-interfaceMethodModifier
-    : PUBLIC
-    ;
-
 variableDeclarator
     : IDENTIFIER ('=' variableInitializer)?
     ;
@@ -114,7 +80,7 @@ variableInitializer
     : expression
     ;
 
-classOrInterfaceType
+classsType
     : IDENTIFIER typeArguments? ('.' IDENTIFIER typeArguments?)*
     ;
 
@@ -179,8 +145,8 @@ variableDeclarators
     ;
 
 localTypeDeclaration
-    : classOrInterfaceModifier*
-      (classDeclaration | interfaceDeclaration)
+    : classModifier*
+      (classDeclaration)
     | ';'
     ;
 
@@ -250,7 +216,7 @@ primary
     ;
 
 classType
-    : (classOrInterfaceType '.')? IDENTIFIER typeArguments?
+    : (classsType '.')? IDENTIFIER typeArguments?
     ;
 
 creator
@@ -273,7 +239,7 @@ classCreatorRest
 
 
 typeType
-    : (classOrInterfaceType | primitiveType) ('[' ']')*
+    : (classsType | primitiveType) ('[' ']')*
     ;
 
 primitiveType
