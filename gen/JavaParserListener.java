@@ -17,16 +17,6 @@ public interface JavaParserListener extends ParseTreeListener {
 	 */
 	void exitCompilationUnit(JavaParser.CompilationUnitContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaParser#packageDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterPackageDeclaration(JavaParser.PackageDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#packageDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitPackageDeclaration(JavaParser.PackageDeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JavaParser#importDeclaration}.
 	 * @param ctx the parse tree
 	 */
@@ -57,15 +47,15 @@ public interface JavaParserListener extends ParseTreeListener {
 	 */
 	void exitModifier(JavaParser.ModifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaParser#classOrInterfaceModifier}.
+	 * Enter a parse tree produced by {@link JavaParser#classModifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassOrInterfaceModifier(JavaParser.ClassOrInterfaceModifierContext ctx);
+	void enterClassModifier(JavaParser.ClassModifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaParser#classOrInterfaceModifier}.
+	 * Exit a parse tree produced by {@link JavaParser#classModifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassOrInterfaceModifier(JavaParser.ClassOrInterfaceModifierContext ctx);
+	void exitClassModifier(JavaParser.ClassModifierContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaParser#classDeclaration}.
 	 * @param ctx the parse tree
@@ -77,16 +67,6 @@ public interface JavaParserListener extends ParseTreeListener {
 	 */
 	void exitClassDeclaration(JavaParser.ClassDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaParser#interfaceDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#interfaceDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JavaParser#classBody}.
 	 * @param ctx the parse tree
 	 */
@@ -96,16 +76,6 @@ public interface JavaParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitClassBody(JavaParser.ClassBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaParser#interfaceBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceBody(JavaParser.InterfaceBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#interfaceBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceBody(JavaParser.InterfaceBodyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaParser#classBodyDeclaration}.
 	 * @param ctx the parse tree
@@ -177,46 +147,6 @@ public interface JavaParserListener extends ParseTreeListener {
 	 */
 	void exitFieldDeclaration(JavaParser.FieldDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaParser#interfaceBodyDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceBodyDeclaration(JavaParser.InterfaceBodyDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#interfaceBodyDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceBodyDeclaration(JavaParser.InterfaceBodyDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaParser#interfaceMemberDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceMemberDeclaration(JavaParser.InterfaceMemberDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#interfaceMemberDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceMemberDeclaration(JavaParser.InterfaceMemberDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaParser#interfaceMethodDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceMethodDeclaration(JavaParser.InterfaceMethodDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#interfaceMethodDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceMethodDeclaration(JavaParser.InterfaceMethodDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JavaParser#interfaceMethodModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterInterfaceMethodModifier(JavaParser.InterfaceMethodModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JavaParser#interfaceMethodModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitInterfaceMethodModifier(JavaParser.InterfaceMethodModifierContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JavaParser#variableDeclarator}.
 	 * @param ctx the parse tree
 	 */
@@ -237,15 +167,15 @@ public interface JavaParserListener extends ParseTreeListener {
 	 */
 	void exitVariableInitializer(JavaParser.VariableInitializerContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JavaParser#classOrInterfaceType}.
+	 * Enter a parse tree produced by {@link JavaParser#classsType}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassOrInterfaceType(JavaParser.ClassOrInterfaceTypeContext ctx);
+	void enterClasssType(JavaParser.ClasssTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JavaParser#classOrInterfaceType}.
+	 * Exit a parse tree produced by {@link JavaParser#classsType}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassOrInterfaceType(JavaParser.ClassOrInterfaceTypeContext ctx);
+	void exitClasssType(JavaParser.ClasssTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JavaParser#typeArgument}.
 	 * @param ctx the parse tree
