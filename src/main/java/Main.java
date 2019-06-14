@@ -24,7 +24,7 @@ public class Main {
         String javaClassContent = "import name; public class nothing{public void rrrrar() {if(b==true){int a =0;}}}";
 
         String javaContent =
-                "import library;" +
+                "import library.lib;" +
                         "public class Book{" +
                         "public Book() {" +
                         "String bookName = \"Harry Potter\";" +
@@ -60,7 +60,7 @@ public class Main {
                 "}" +
                 "}" +
                 "}";
-        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(file));
+        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaContent));
         CommonTokenStream tokens = new CommonTokenStream(java8Lexer);
         JavaParser parser = new JavaParser(tokens);
         ParseTree tree = parser.compilationUnit();

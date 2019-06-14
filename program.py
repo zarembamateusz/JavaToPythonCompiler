@@ -1,4 +1,4 @@
-import library
+import library.lib
 
 class Book:
 
