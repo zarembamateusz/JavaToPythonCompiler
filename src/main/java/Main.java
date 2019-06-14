@@ -15,7 +15,12 @@ import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 public class Main {
     public static final String INPUT_CSV = "Test.java";
 
+
+
+
     public static void main(String[] args) {
+        String file = FileManager.readFile();
+
         String javaClassContent = "import name; public class nothing{public void rrrrar() {if(b==true){int a =0;}}}";
 
         String javaContent =
@@ -41,7 +46,7 @@ public class Main {
 
         String javaClassContent2 = "import name;" +
                 "public class nothing{" +
-                "public void rrrrar() {" +
+                "public void rrrrar(int a) {" +
                 "int a = 3;" +
                 "if (a > 3) {" +
                 "int c = 5;" +
@@ -55,7 +60,7 @@ public class Main {
                 "}" +
                 "}" +
                 "}";
-        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaContent));
+        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(file));
         CommonTokenStream tokens = new CommonTokenStream(java8Lexer);
         JavaParser parser = new JavaParser(tokens);
         ParseTree tree = parser.compilationUnit();
@@ -64,7 +69,6 @@ public class Main {
         PythonLoader listener= new PythonLoader();
 
         walker.walk(listener, tree);
-
-        System.out.println(listener.kod.toString());
+        FileManager.saveFile(listener.kod);
     }
 }
