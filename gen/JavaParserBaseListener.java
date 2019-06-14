@@ -27,19 +27,9 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPackageDeclaration(JavaParser.PackageDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPackageDeclaration(JavaParser.PackageDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterImportDeclaration(JavaParser.ImportDeclarationContext ctx) { }
+	@Override public void enterImportDeclaration(JavaParser.ImportDeclarationContext ctx) {
+		String s =";";
+	}
 	/**
 	 * {@inheritDoc}
 	 *
@@ -75,13 +65,13 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassOrInterfaceModifier(JavaParser.ClassOrInterfaceModifierContext ctx) { }
+	@Override public void enterClassModifier(JavaParser.ClassModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassOrInterfaceModifier(JavaParser.ClassOrInterfaceModifierContext ctx) { }
+	@Override public void exitClassModifier(JavaParser.ClassModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -99,18 +89,6 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterClassBody(JavaParser.ClassBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -118,18 +96,6 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitClassBody(JavaParser.ClassBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterInterfaceBody(JavaParser.InterfaceBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInterfaceBody(JavaParser.InterfaceBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -219,54 +185,6 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceBodyDeclaration(JavaParser.InterfaceBodyDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInterfaceBodyDeclaration(JavaParser.InterfaceBodyDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterInterfaceMemberDeclaration(JavaParser.InterfaceMemberDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInterfaceMemberDeclaration(JavaParser.InterfaceMemberDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterInterfaceMethodDeclaration(JavaParser.InterfaceMethodDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInterfaceMethodDeclaration(JavaParser.InterfaceMethodDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterInterfaceMethodModifier(JavaParser.InterfaceMethodModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInterfaceMethodModifier(JavaParser.InterfaceMethodModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVariableDeclarator(JavaParser.VariableDeclaratorContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -291,13 +209,13 @@ public class JavaParserBaseListener implements JavaParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassOrInterfaceType(JavaParser.ClassOrInterfaceTypeContext ctx) { }
+	@Override public void enterClasssType(JavaParser.ClasssTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassOrInterfaceType(JavaParser.ClassOrInterfaceTypeContext ctx) { }
+	@Override public void exitClasssType(JavaParser.ClasssTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -16,12 +16,6 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCompilationUnit(JavaParser.CompilationUnitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#packageDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPackageDeclaration(JavaParser.PackageDeclarationContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JavaParser#importDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -40,11 +34,11 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitModifier(JavaParser.ModifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#classOrInterfaceModifier}.
+	 * Visit a parse tree produced by {@link JavaParser#classModifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassOrInterfaceModifier(JavaParser.ClassOrInterfaceModifierContext ctx);
+	T visitClassModifier(JavaParser.ClassModifierContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JavaParser#classDeclaration}.
 	 * @param ctx the parse tree
@@ -52,23 +46,11 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitClassDeclaration(JavaParser.ClassDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#interfaceDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceDeclaration(JavaParser.InterfaceDeclarationContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JavaParser#classBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitClassBody(JavaParser.ClassBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JavaParser#interfaceBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceBody(JavaParser.InterfaceBodyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JavaParser#classBodyDeclaration}.
 	 * @param ctx the parse tree
@@ -112,30 +94,6 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFieldDeclaration(JavaParser.FieldDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#interfaceBodyDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceBodyDeclaration(JavaParser.InterfaceBodyDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JavaParser#interfaceMemberDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceMemberDeclaration(JavaParser.InterfaceMemberDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JavaParser#interfaceMethodDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceMethodDeclaration(JavaParser.InterfaceMethodDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JavaParser#interfaceMethodModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInterfaceMethodModifier(JavaParser.InterfaceMethodModifierContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JavaParser#variableDeclarator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -148,11 +106,11 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableInitializer(JavaParser.VariableInitializerContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#classOrInterfaceType}.
+	 * Visit a parse tree produced by {@link JavaParser#classsType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassOrInterfaceType(JavaParser.ClassOrInterfaceTypeContext ctx);
+	T visitClasssType(JavaParser.ClasssTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JavaParser#typeArgument}.
 	 * @param ctx the parse tree
