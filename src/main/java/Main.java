@@ -16,34 +16,46 @@ public class Main {
     public static final String INPUT_CSV = "Test.java";
 
     public static void main(String[] args) {
-//        try {
-//            FileInputStream fileInputStream = new FileInputStream(INPUT_CSV);
-//            JavaLexer lexer;
-//
-//            lexer = new JavaLexer(new ANTLRInputStream(fileInputStream));
-//            CommonTokenStream tokens = new CommonTokenStream(lexer);
-//            JavaParser parser = new JavaParser(tokens);
-//            ParserRuleContext ruleContext = parser.file();
-//            Trees.inspect(ruleContext, parser);
-//
-//
-//
-//        } catch (FileNotFoundException e) {
-//            System.err.println("Input file not found.");
-//            return;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        String javaClassContent = "public class SampleClass { void DoSomething(){} }";
         String javaClassContent = "import name; public class nothing{public void rrrrar() {if(b==true){int a =0;}}}";
 
-        String javaClassContentWithOutIF = "import name;" +
-                "public class nothing{"+
-                "public void rrrrar(String t,int h) {" +
-                "String a = \"hahah\";" +
+        String javaContent =
+                "import library;" +
+                        "public class Book{" +
+                        "public Book() {" +
+                        "String bookName = \"Harry Potter\";" +
+                        "}" +
+                        "public void rrrrar() {" +
+                        "int a = 3;" +
+                        "if (a > 3) {" +
+                        "int c = 5;" +
+                        "}" +
+                        "double d = 3.4;" +
+                        "while (d < b) {" +
+                        "int e = 1;" +
+                        "}" +
+                        "for (int i=0; i<6; i++) {" +
+                        "int f = 4;" +
+                        "}" +
+                        "}" +
+                        "}";
+
+        String javaClassContent2 = "import name;" +
+                "public class nothing{" +
+                "public void rrrrar() {" +
+                "int a = 3;" +
+                "if (a > 3) {" +
+                "int c = 5;" +
+                "}" +
+                "double d = 3.4;" +
+                "while (d < b) {" +
+                "int e = 1;" +
+                "}" +
+                "for (int i=0; i<6; i++) {" +
+                "int f = 4;" +
+                "}" +
                 "}" +
                 "}";
-        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaClassContentWithOutIF));
+        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaContent));
         CommonTokenStream tokens = new CommonTokenStream(java8Lexer);
         JavaParser parser = new JavaParser(tokens);
         ParseTree tree = parser.compilationUnit();
@@ -53,16 +65,6 @@ public class Main {
 
         walker.walk(listener, tree);
 
-        for(String s : listener.kod){
-            System.out.println(s);
-        }
-
-
-
-//        assertThat(listener.getErrors().size(), is(1));
-//        assertThat(listener.getErrors().get(0),
-//                is("Method DoSomething is uppercased!"));
-
+        System.out.println(listener.kod.toString());
     }
-
 }
