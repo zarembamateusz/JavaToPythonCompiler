@@ -13,49 +13,11 @@ import java.io.IOException;
 import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 
 public class Main {
-    public static final String INPUT_CSV = "Test.java";
-
     public static void main(String[] args) {
-        String javaClassContent = "import name; public class nothing{public void rrrrar() {if(b==true){int a =0;}}}";
+        String file = FileManager.readFile();
 
-        String javaContent =
-                "import library;" +
-                        "public class Book{" +
-                        "public Book() {" +
-                        "String bookName = \"Harry Potter\";" +
-                        "}" +
-                        "public void rrrrar() {" +
-                        "int a = 3;" +
-                        "if (a > 3) {" +
-                        "int c = 5;" +
-                        "}" +
-                        "double d = 3.4;" +
-                        "while (d < b) {" +
-                        "int e = 1;" +
-                        "}" +
-                        "for (int i=0; i<6; i++) {" +
-                        "int f = 4;" +
-                        "}" +
-                        "}" +
-                        "}";
+        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(file));
 
-        String javaClassContent2 = "import name;" +
-                "public class nothing{" +
-                "public void rrrrar() {" +
-                "int a = 3;" +
-                "if (a > 3) {" +
-                "int c = 5;" +
-                "}" +
-                "double d = 3.4;" +
-                "while (d < b) {" +
-                "int e = 1;" +
-                "}" +
-                "for (int i=0; i<6; i++) {" +
-                "int f = 4;" +
-                "}" +
-                "}" +
-                "}";
-        JavaLexer java8Lexer = new JavaLexer(CharStreams.fromString(javaContent));
         CommonTokenStream tokens = new CommonTokenStream(java8Lexer);
         JavaParser parser = new JavaParser(tokens);
         ParseTree tree = parser.compilationUnit();
@@ -64,7 +26,6 @@ public class Main {
         PythonLoader listener= new PythonLoader();
 
         walker.walk(listener, tree);
-
-        System.out.println(listener.kod.toString());
+        FileManager.saveFile(listener.kod);
     }
 }

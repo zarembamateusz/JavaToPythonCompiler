@@ -8,7 +8,7 @@ compilationUnit
 
 
 importDeclaration
-    : IMPORT qualifiedName ('.' '*')? ';'
+    : IMPORT qualifiedName '.' ? ';'
     ;
 
 typeDeclaration
