@@ -1,16 +1,7 @@
-import org.antlr.runtime.ANTLRInputStream;
-import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 
 public class Main {
     public static void main(String[] args) {
