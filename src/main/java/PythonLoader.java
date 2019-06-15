@@ -11,10 +11,6 @@ public class PythonLoader extends JavaParserBaseListener {
     public String currentLine = "";
     int tab=0;
 
-    @Override public void enterCompilationUnit(JavaParser.CompilationUnitContext ctx) { }
-
-    @Override public void exitCompilationUnit(JavaParser.CompilationUnitContext ctx) { }
-
     @Override public void enterImportDeclaration(JavaParser.ImportDeclarationContext ctx) {
         currentLine+=ctx.IMPORT().getText();
     }
@@ -23,15 +19,6 @@ public class PythonLoader extends JavaParserBaseListener {
         addNewLine();
         cleanAndReTab();
     }
-
-    @Override public void enterTypeDeclaration(JavaParser.TypeDeclarationContext ctx) { }
-
-    @Override public void exitTypeDeclaration(JavaParser.TypeDeclarationContext ctx) { }
-
-    @Override public void enterModifier(JavaParser.ModifierContext ctx) { }
-
-    @Override public void exitModifier(JavaParser.ModifierContext ctx) { }
-
 
     @Override public void enterClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
         currentLine+="class"+" "+ctx.IDENTIFIER();
@@ -60,10 +47,6 @@ public class PythonLoader extends JavaParserBaseListener {
         cleanAndReTab();
     }
 
-    @Override public void enterMemberDeclaration(JavaParser.MemberDeclarationContext ctx) { }
-
-    @Override public void exitMemberDeclaration(JavaParser.MemberDeclarationContext ctx) { }
-
     @Override public void enterMethodDeclaration(JavaParser.MethodDeclarationContext ctx) {
         currentLine+="def"+" "+ctx.IDENTIFIER();
     }
@@ -79,20 +62,11 @@ public class PythonLoader extends JavaParserBaseListener {
         cleanAndReTab();
     }
 
-    @Override public void enterTypeTypeOrVoid(JavaParser.TypeTypeOrVoidContext ctx) { }
-
-    @Override public void exitTypeTypeOrVoid(JavaParser.TypeTypeOrVoidContext ctx) { }
-
     @Override public void enterConstructorDeclaration(JavaParser.ConstructorDeclarationContext ctx) {
         currentLine += "def __init__";
     }
 
     @Override public void exitConstructorDeclaration(JavaParser.ConstructorDeclarationContext ctx) { }
-
-    @Override public void enterFieldDeclaration(JavaParser.FieldDeclarationContext ctx) { }
-
-    @Override public void exitFieldDeclaration(JavaParser.FieldDeclarationContext ctx) { }
-
 
     @Override public void enterVariableDeclarator(JavaParser.VariableDeclaratorContext ctx) {
         currentLine+=ctx.IDENTIFIER()+" "+ctx.ASSIGN();
@@ -102,19 +76,6 @@ public class PythonLoader extends JavaParserBaseListener {
         addNewLine();
         cleanAndReTab();
     }
-
-    @Override public void enterVariableInitializer(JavaParser.VariableInitializerContext ctx) {
-    }
-
-    @Override public void exitVariableInitializer(JavaParser.VariableInitializerContext ctx) { }
-
-    @Override public void enterTypeArgument(JavaParser.TypeArgumentContext ctx) { }
-
-    @Override public void exitTypeArgument(JavaParser.TypeArgumentContext ctx) { }
-
-    @Override public void enterQualifiedNameList(JavaParser.QualifiedNameListContext ctx) { }
-
-    @Override public void exitQualifiedNameList(JavaParser.QualifiedNameListContext ctx) { }
 
     @Override public void enterFormalParameters(JavaParser.FormalParametersContext ctx) {
         currentLine+="(self";
@@ -127,9 +88,6 @@ public class PythonLoader extends JavaParserBaseListener {
         cleanAndReTab();
     }
 
-    @Override public void enterFormalParameterList(JavaParser.FormalParameterListContext ctx) { }
-
-    @Override public void exitFormalParameterList(JavaParser.FormalParameterListContext ctx) { }
 
     @Override public void enterFormalParameter(JavaParser.FormalParameterContext ctx) {
         currentLine+=","+ ctx.IDENTIFIER();
@@ -165,33 +123,6 @@ public class PythonLoader extends JavaParserBaseListener {
 
     @Override public void exitFloatLiteral(JavaParser.FloatLiteralContext ctx) { }
 
-    @Override public void enterBlock(JavaParser.BlockContext ctx) { }
-
-    @Override public void exitBlock(JavaParser.BlockContext ctx) { }
-
-    @Override public void enterBlockStatement(JavaParser.BlockStatementContext ctx) {
-//		System.out.println("statement enter");
-    }
-
-    @Override public void exitBlockStatement(JavaParser.BlockStatementContext ctx) {
-//		System.out.println("statement exit");
-    }
-
-    @Override public void enterLocalVariableDeclaration(JavaParser.LocalVariableDeclarationContext ctx) { }
-
-    @Override public void exitLocalVariableDeclaration(JavaParser.LocalVariableDeclarationContext ctx) { }
-
-    @Override public void enterVariableDeclarators(JavaParser.VariableDeclaratorsContext ctx) {
-//		System.out.println("rs");
-    }
-
-    @Override public void exitVariableDeclarators(JavaParser.VariableDeclaratorsContext ctx) {
-
-    }
-
-    @Override public void enterLocalTypeDeclaration(JavaParser.LocalTypeDeclarationContext ctx) { }
-
-    @Override public void exitLocalTypeDeclaration(JavaParser.LocalTypeDeclarationContext ctx) { }
 
     @Override public void enterStatement(JavaParser.StatementContext ctx) {
         cleanAndReTab();
@@ -248,26 +179,6 @@ public class PythonLoader extends JavaParserBaseListener {
         cleanAndReTab();
     }
 
-    @Override public void enterForControl(JavaParser.ForControlContext ctx) { }
-
-    @Override public void exitForControl(JavaParser.ForControlContext ctx) { }
-
-    @Override public void enterForInit(JavaParser.ForInitContext ctx) { }
-
-    @Override public void exitForInit(JavaParser.ForInitContext ctx) { }
-
-    @Override public void enterParExpression(JavaParser.ParExpressionContext ctx) { }
-
-    @Override public void exitParExpression(JavaParser.ParExpressionContext ctx) { }
-
-    @Override public void enterExpressionList(JavaParser.ExpressionListContext ctx) { }
-
-    @Override public void exitExpressionList(JavaParser.ExpressionListContext ctx) { }
-
-    @Override public void enterMethodCall(JavaParser.MethodCallContext ctx) { }
-
-    @Override public void exitMethodCall(JavaParser.MethodCallContext ctx) { }
-
     @Override public void enterExpression(JavaParser.ExpressionContext ctx) {
         if(ctx.OR()!=null)
             currentLine+=" ||";
@@ -277,75 +188,11 @@ public class PythonLoader extends JavaParserBaseListener {
 
     @Override public void exitExpression(JavaParser.ExpressionContext ctx) { }
 
-    @Override public void enterPrimary(JavaParser.PrimaryContext ctx) { }
-
-    @Override public void exitPrimary(JavaParser.PrimaryContext ctx) { }
-
-    @Override public void enterClassType(JavaParser.ClassTypeContext ctx) { }
-
-    @Override public void exitClassType(JavaParser.ClassTypeContext ctx) { }
-
-    @Override public void enterCreator(JavaParser.CreatorContext ctx) { }
-
-    @Override public void exitCreator(JavaParser.CreatorContext ctx) { }
-
-    @Override public void enterCreatedName(JavaParser.CreatedNameContext ctx) { }
-
-    @Override public void exitCreatedName(JavaParser.CreatedNameContext ctx) { }
-
-    @Override public void enterInnerCreator(JavaParser.InnerCreatorContext ctx) { }
-
-    @Override public void exitInnerCreator(JavaParser.InnerCreatorContext ctx) { }
-
-    @Override public void enterClassCreatorRest(JavaParser.ClassCreatorRestContext ctx) { }
-
-    @Override public void exitClassCreatorRest(JavaParser.ClassCreatorRestContext ctx) { }
-
-    @Override public void enterTypeType(JavaParser.TypeTypeContext ctx) { }
-
-    @Override public void exitTypeType(JavaParser.TypeTypeContext ctx) { }
-
+    //w python nie trzeba pisać typów
     @Override public void enterPrimitiveType(JavaParser.PrimitiveTypeContext ctx) {
-        //w python nie trzeba pisać typów
-//		if(ctx.INT()!= null)
-//			currentLine += ctx.INT() + " ";
-//		else if(ctx.BOOLEAN()!=null)
-//			currentLine += ctx.BOOLEAN() + " ";
-//		else if(ctx.DOUBLE()!= null)
-//			currentLine += ctx.DOUBLE() + " ";
-//		else if(ctx.LONG()!=null)
-//			currentLine += ctx.LONG()+" ";
-//		else if (ctx.FLOAT()!= null)
-//			currentLine += ctx.INT() + " ";
-
     }
 
     @Override public void exitPrimitiveType(JavaParser.PrimitiveTypeContext ctx) { }
-
-    @Override public void enterTypeArguments(JavaParser.TypeArgumentsContext ctx) { }
-
-    @Override public void exitTypeArguments(JavaParser.TypeArgumentsContext ctx) { }
-
-    @Override public void enterArguments(JavaParser.ArgumentsContext ctx) { }
-
-    @Override public void exitArguments(JavaParser.ArgumentsContext ctx) { }
-
-    @Override public void enterEveryRule(ParserRuleContext ctx) {
-
-//		currentLine+="import";
-    }
-
-    @Override public void exitEveryRule(ParserRuleContext ctx) { }
-
-    @Override public void visitTerminal(TerminalNode node) {
-//		if(node.getText().equals(";")){
-//
-//		}else
-//			currentLine += node.getText();
-
-    }
-
-    @Override public void visitErrorNode(ErrorNode node) { }
 
     private void cleanAndReTab(){
         currentLine = "";
