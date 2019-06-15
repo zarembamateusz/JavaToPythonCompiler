@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact name="ANTLR_tokenizer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Java2Python_jar</output-path>
+    <root id="root">
+      <element id="archive" name="ANTLR_tokenizer.jar">
+        <element id="module-output" name="ANTLR_tokenizer" />
+      </element>
+      <element id="library" level="project" name="Maven: org.abego.treelayout:org.abego.treelayout.core:1.0.3" />
+      <element id="library" level="project" name="Maven: org.antlr:antlr-runtime:3.5.2" />
+      <element id="library" level="project" name="Maven: org.antlr:antlr4:4.7" />
+      <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
+      <element id="library" level="project" name="Maven: org.antlr:ST4:4.0.8" />
+      <element id="library" level="project" name="Maven: org.antlr:antlr4-runtime:4.7" />
+      <element id="library" level="project" name="Maven: com.ibm.icu:icu4j:58.2" />
+    </root>
+  </artifact>
+</component>
