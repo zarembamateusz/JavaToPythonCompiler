@@ -17,7 +17,7 @@ public class FileManager {
         try {
             PrintWriter save = new PrintWriter(getCurrenPath()+"\\program.py");
             for(String line : lines)
-                save.println(line);
+                save.print(line);
 
             save.close();
         } catch (FileNotFoundException e) {
